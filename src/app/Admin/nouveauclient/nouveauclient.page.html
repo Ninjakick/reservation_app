@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{titrepage}}</ion-title>
+    <ion-buttons slot="end">
+	    <ion-button (click)="dismissModal()">Fermer</ion-button>
+	  </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+<ion-content>
+<ion-list>
+	<form [formGroup]="userinfo">
+	    <ion-item>
+		  <ion-label position="floating">Nom</ion-label>
+		  <ion-input type="text" formControlName="nom"></ion-input>
+		</ion-item>
+		<ion-item>
+		  <ion-label position="floating">Prenom</ion-label>
+		  <ion-input type="text" formControlName="prenom"></ion-input>
+		</ion-item>
+		<ion-item>
+		  <ion-label position="floating">Numero de téléphone</ion-label>
+		  <ion-input type="number" formControlName="numero"></ion-input>
+		</ion-item>
+		<ion-item>
+		  <ion-label position="floating">Adresse</ion-label>
+		  <ion-input type="text" formControlName="adress"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Date de naissance</ion-label>
+			<ion-datetime displayFormat="DD MMMM YYYY" formControlName="date_naissance"></ion-datetime>
+		</ion-item>
+		<ion-item>
+		  <ion-label position="floating">Mot de passe</ion-label>
+		  <ion-input type="password" formControlName="mdp"></ion-input>
+		</ion-item>
+		<ion-item>
+		  <ion-label position="floating">Confirmation mot de pass</ion-label>
+		  <ion-input type="password" formControlName="mdpconfirm"></ion-input>
+		</ion-item>
+		<ion-button color="success" expand="block" (click)="enregistre()" [disabled]="!userinfo.valid">
+			{{boutonlabel}}
+		</ion-button>
+	</form>
+</ion-list>
+</ion-content>

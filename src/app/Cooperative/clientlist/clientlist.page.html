@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Client</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-searchbar  placeholder="Recherche" animated (ionInput)="SearchinputChanged($event.target.value)"></ion-searchbar>
+	<ion-list>
+		<ion-item-sliding *ngFor="let data of donneclient">
+			<ion-item (click)="detailClient(data)">
+				<ion-label>
+					<h2>{{data.nom}} {{data.prenom}}</h2>
+					<h3>{{data.numero}} {{data.adresse}}</h3>
+				</ion-label>
+        	</ion-item>
+		</ion-item-sliding>
+	</ion-list>
+</ion-content>

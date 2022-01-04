@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Détail</ion-title>
+    <ion-buttons slot="end">
+	    <ion-button (click)="dismissModal()">Fermer</ion-button>
+	</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-list>
+	<ion-item-group>
+		<ion-item-divider>
+			<ion-label>Voyage</ion-label>
+		</ion-item-divider>
+		<ion-item>
+			<!-- <ion-label>Date depart: {{formatdate(detailinfo.date_dep)}}</ion-label> -->
+			<ion-label>Date depart: {{detailinfo.date_dep}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<!-- <ion-label>Date d' arrivé: {{formatdate(detailinfo.date_arr)}}</ion-label> -->
+			<ion-label>Date d' arrivé: {{detailinfo.date_arr}}</ion-label>
+		</ion-item>
+	</ion-item-group>
+	<ion-item-group>
+		<ion-item-divider>
+			<ion-label>Tarif</ion-label>
+		</ion-item-divider>
+		<ion-item>
+			<ion-label>Lieu de depart: {{detailinfo.lieu_depart}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>Destination: {{detailinfo.lieu_arrive}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>Montant: {{detailinfo.montant}} Ar</ion-label>
+		</ion-item>
+	</ion-item-group>
+	<ion-item-group>
+		<ion-item-divider>
+			<ion-label>Voiture</ion-label>
+		</ion-item-divider>
+		<ion-item>
+			<ion-label>Marque: {{detailinfo.marque}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>Numero: {{detailinfo.numero}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>Nombre de place: {{detailinfo.nombre_place}}</ion-label>
+		</ion-item>
+	</ion-item-group>
+	
+</ion-list>
+</ion-content>

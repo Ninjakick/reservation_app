@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{titrepage}}</ion-title>
+    <ion-buttons slot="end">
+	    <ion-button (click)="dismissModal()">Fermer</ion-button>
+	  </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+<ion-content>
+<ion-list>
+	<form [formGroup]="voyageinputgroup">
+		<ion-item>
+		  <ion-label>Voiture</ion-label>
+		  <ion-select formControlName="id_voiture">
+            <ion-select-option *ngFor="let voiture of voiturelist" value="{{voiture.id}}">{{ voiture.marque + '/' + voiture.numero }}</ion-select-option>
+          </ion-select>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Date de depart</ion-label>
+			<ion-datetime displayFormat="DD MMMM YYYY" formControlName="date_dep"></ion-datetime>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">Date d'arriver</ion-label>
+			<ion-datetime displayFormat="DD MMMM YYYY" formControlName="date_arr"></ion-datetime>
+		</ion-item>
+		<ion-item>
+		  <ion-label>Lieu de depart</ion-label>
+		  <ion-select cancel-text="Annuler" (ionChange)="chagementvaleurdepart()" formControlName="lieu_depart">
+            <ion-select-option *ngFor="let tarif of listdepart">{{tarif}}</ion-select-option>
+          </ion-select>
+		</ion-item>
+		<ion-item>
+		  <ion-label>Lieu d'arrivé</ion-label>
+		  <ion-select cancel-text="Annuler" (ionChange)="chagementvaleurarriver()" formControlName="lieu_arrive" (ionFocus)="focusfun()">
+            <ion-select-option *ngFor="let tarif of listarriver">{{tarif}}</ion-select-option>
+          </ion-select>
+		</ion-item>
+		<ion-item>
+		  <ion-label>Montant:</ion-label>
+		  <ion-note slot="end" color="primary">{{ voyageinputgroup.value.montant }}</ion-note>
+		</ion-item>
+		
+		<ion-button color="success" expand="block" (click)="enregistre()" [disabled]="!voyageinputgroup.valid">
+			{{boutonlabel}}
+		</ion-button>
+	</form>
+</ion-list>
+</ion-content>

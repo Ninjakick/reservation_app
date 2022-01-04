@@ -1,0 +1,15 @@
+<ion-content padding>
+  <img src="assets/logo.png" class="image">
+  <form [formGroup]="credential">
+    <ion-item>
+      <ion-label position="floating">Numero telephone</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+    <ion-item class="bordered">
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-button color="success" expand="block" [disabled]="!credential.valid" (click)="login()">Se connecter</ion-button>
+    <ion-button color="secondary" expand="block" (click)="inscription()">S'inscrire</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{titrepage}}</ion-title>
+    <ion-buttons slot="end">
+	    <ion-button (click)="dismissModal()">Fermer</ion-button>
+	  </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+<ion-content>
+<ion-list>
+	<form [formGroup]="voitureinfo">
+	    <ion-item>
+		  <ion-label position="floating">Marque</ion-label>
+		  <ion-input type="text" formControlName="marque"></ion-input>
+		</ion-item>
+		<ion-item>
+		  <ion-label position="floating">Numero</ion-label>
+		  <ion-input type="text" formControlName="numero"></ion-input>
+		</ion-item>
+		<ion-item>
+		  <ion-label position="floating">Nombre de place</ion-label>
+		  <ion-input type="number" formControlName="nombre_place"></ion-input>
+		</ion-item>
+		
+		<ion-button color="success" expand="block" (click)="enregistre()" [disabled]="!voitureinfo.valid">
+			{{boutonlabel}}
+		</ion-button>
+	</form>
+</ion-list>
+</ion-content>

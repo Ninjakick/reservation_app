@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cooperative</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-searchbar  placeholder="Recherche" animated (ionInput)="SearchinputChanged($event.target.value)"></ion-searchbar>
+<ion-list>
+	<ion-item *ngFor="let data of donnevoyage" (click)="opendetail(data)">
+		<ion-label>
+			<h2>Cooperative: {{data.nom}}</h2>
+			<h3>Frais: {{data.montant}} Ar</h3>
+
+			<!-- <h3>{{formatdate(data.date_dep)}}</h3> -->
+			<h3>Depart: {{data.date_dep}}, marque: {{data.marque}}</h3>
+			<small>{{data.lieu_depart}} / {{data.lieu_arrive}}</small>
+		</ion-label>
+	</ion-item>
+</ion-list>
+</ion-content>
